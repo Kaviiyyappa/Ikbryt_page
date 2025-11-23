@@ -1,6 +1,6 @@
 pyrogram==2.0.80
 pyromod
-TgCrypto
+pycryptodome
 motor
 dnspython
 hachoir
