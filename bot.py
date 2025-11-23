@@ -13,7 +13,7 @@ import pyrogram.utils
 # -------------------------------
 # IMPORTANT: Leapcell writable path
 # -------------------------------
-SESSION_PATH = "/tmp/rexbots"
+SESSION_PATH = "/data/rexbots"
 os.makedirs(SESSION_PATH, exist_ok=True)
 
 pyrogram.utils.MIN_CHANNEL_ID = -1002964099736
