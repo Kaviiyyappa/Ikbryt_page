@@ -12,25 +12,25 @@ id_pattern = re.compile(r'^.\d+$')
 # --
 class Config(object):
     # pyro client config
-    API_ID    = os.environ.get("API_ID", "")
-    API_HASH  = os.environ.get("API_HASH", "")
+    API_ID    = os.environ.get("API_ID", "36464925")
+    API_HASH  = os.environ.get("API_HASH", "942f6440a3ab83321135d7c1927aba0a")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     PORT = os.environ.get("PORT", "8080")
 
     # database config
     DB_NAME = os.environ.get("DB_NAME", "Laal")     
-    DB_URL  = os.environ.get("DB_URL", "")
+    DB_URL  = os.environ.get("DB_URL", "mongodb+srv://workwithsaikat:saikat9735@cluster0.0e5vp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
  
     # other configs
-    ADMIN_URL = "https://t.me/team_katanashi"
-    DUMP_CHANNEL = os.environ.get("DUMP_CHANNEL", "-1001980503817")
+    ADMIN_URL = "https://t.me/ikbryt01"
+    DUMP_CHANNEL = os.environ.get("DUMP_CHANNEL", "-1003308904320")
     DUMP = True
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://ibb.co/Z6yLcfc0")
     LEADERBOARD_PIC = os.environ.get("LEADERBOARD_PIC", "https://ibb.co/k6VjXqxV")
-    OWNER_ID = int(os.environ.get("OWNER_ID", "5862168163"))
-    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", "-1002840186364"))
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
+    OWNER_ID = int(os.environ.get("OWNER_ID", "8422190094"))
+    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", "-1002871570975"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1003386075651"))
     FSUB_PIC = os.environ.get("FSUB_PIC", "https://ibb.co/DHQ5JMVG")
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
     LEADERBOARD_DELETE_TIMER = 30
