@@ -18,20 +18,20 @@ class Config(object):
     PORT = os.environ.get("PORT", "8080")
 
     # database config
-    DB_NAME = os.environ.get("DB_NAME", "RexBots")     
+    DB_NAME = os.environ.get("DB_NAME", "Laal")     
     DB_URL  = os.environ.get("DB_URL", "")
  
     # other configs
-    ADMIN_URL = "https://t.me/adityaabhinav"
+    ADMIN_URL = "https://t.me/team_katanashi"
     DUMP_CHANNEL = os.environ.get("DUMP_CHANNEL", "-1001980503817")
     DUMP = True
     BOT_UPTIME  = time.time()
-    START_PIC   = os.environ.get("START_PIC", "https://ibb.co/Cs0zsrCn")
-    LEADERBOARD_PIC = os.environ.get("LEADERBOARD_PIC", "https://ibb.co/RGx4RmDg")
+    START_PIC   = os.environ.get("START_PIC", "https://ibb.co/Z6yLcfc0")
+    LEADERBOARD_PIC = os.environ.get("LEADERBOARD_PIC", "https://ibb.co/k6VjXqxV")
     OWNER_ID = int(os.environ.get("OWNER_ID", "5862168163"))
-    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", "-1002871570975"))
+    SUPPORT_CHAT = int(os.environ.get("SUPPORT_CHAT", "-1002840186364"))
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
-    FSUB_PIC = os.environ.get("FSUB_PIC", "")
+    FSUB_PIC = os.environ.get("FSUB_PIC", "https://ibb.co/DHQ5JMVG")
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "")
     LEADERBOARD_DELETE_TIMER = 30
     # wes response configuration     
@@ -49,16 +49,16 @@ class Config(object):
 ➲ ᴇᴘɪꜱᴏᴅᴇ - ᴛᴏ ʀᴇᴘʟᴀᴄᴇ ᴇᴘɪꜱᴏᴅᴇ ɴᴜᴍʙᴇʀ
 ➲ ǫᴜᴀʟɪᴛʏ - ᴛᴏ ʀᴇᴘʟᴀᴄᴇ ǫᴜᴀʟɪᴛʏ
 
-<b>‣ ꜰᴏʀ ᴇx:- </b> <code> /autorename Your Anime Name Here [SSeason] [EPEpisode] [Quality] [Audio] @Seishiro_atanime </code>
+<b>‣ ꜰᴏʀ ᴇx:- </b> <code> /autorename Your Anime Name Here [SSeason] [EPEpisode] [Quality] [Audio] @anime_swordsmith </code>
 
 <b>‣ /Autorename: ʀᴇɴᴀᴍᴇ ʏᴏᴜʀ ᴍᴇᴅɪᴀ ꜰɪʟᴇꜱ ʙʏ ɪɴᴄʟᴜᴅɪɴɢ 'ᴇᴘɪꜱᴏᴅᴇ' ᴀɴᴅ 'ǫᴜᴀʟɪᴛʏ' ᴠᴀʀɪᴀʙʟᴇꜱ ɪɴ ʏᴏᴜʀ ᴛᴇxᴛ, ᴛᴏ ᴇxᴛʀᴀᴄᴛ ᴇᴘɪꜱᴏᴅᴇ ᴀɴᴅ ǫᴜᴀʟɪᴛʏ ᴘʀᴇꜱᴇɴᴛ ɪɴ ᴛʜᴇ ᴏʀɪɢɪɴᴀʟ ꜰɪʟᴇɴᴀᴍᴇ. """
     
     ABOUT_TXT = f"""<b><blockquote expandable>❍ <u>ᴍʏ ɴᴀᴍᴇ</u> : <b><i>ᴀᴜᴛᴏ ʀᴇɴᴀᴍᴇ</i></b>
-❍ ᴅᴇᴠᴇʟᴏᴩᴇʀ : <a href="https://t.me/RexBots_Official">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
+❍ ᴅᴇᴠᴇʟᴏᴩᴇʀ : <a href="https://t.me/Swordsmith_bot">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
 ❍ ʟᴀɴɢᴜᴀɢᴇ : <a href="https://www.python.org/">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
 ❍ ᴅᴀᴛᴀʙᴀꜱᴇ : <a href="https://www.mongodb.com/">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
-❍ ʜᴏꜱᴛᴇᴅ ᴏɴ : <a href="https://t.me/RexBots_Official">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
-❍ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ : <a href="https://t.me/RexBots_Official">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
+❍ ʜᴏꜱᴛᴇᴅ ᴏɴ : <a href="https://t.me/Team_Katanashi">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
+❍ ᴍᴀɪɴ ᴄʜᴀɴɴᴇʟ : <a href="https://t.me/Anime_Swordsmith">ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>
 
 ➻ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛᴛɪɴɢ ʙᴀsɪᴄ ʜᴇʟᴩ ᴀɴᴅ ɪɴғᴏ ᴀʙᴏᴜᴛ ᴍᴇ.</blockquote></b>"""
 
