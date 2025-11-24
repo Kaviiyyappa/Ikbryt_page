@@ -3,90 +3,82 @@ import time
 import pyromod.listen
 from datetime import datetime, timedelta
 from pytz import timezone
-from aiohttp import web
-from pyrogram import Client, enums
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, __version__
+from pyrogram.raw.all import layer
 from config import Config
+from aiohttp import web
 from route import web_server
 import pyrogram.utils
-
-# -------------------------------
-# IMPORTANT: Leapcell writable path
-# -------------------------------
-SESSION_PATH = "/data/rexbots"
-os.makedirs(SESSION_PATH, exist_ok=True)
-
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+# ----------------------------------------
+# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
+# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
+# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
+# --
 pyrogram.utils.MIN_CHANNEL_ID = -1002964099736
+# ----------------------------------------
+# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
+# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
+# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
+# --
 PORT = Config.PORT
-
-
+# ----------------------------------------
+# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
+# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
+# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
+# --
 class Bot(Client):
     def __init__(self):
         super().__init__(
-            name=SESSION_PATH,                  # session saved in /tmp
+            name="rexbots",
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
             workers=200,
             plugins={"root": "plugins"},
             sleep_threshold=15,
-            parse_mode=enums.ParseMode.HTML
         )
         self.start_time = time.time()
-
+# ----------------------------------------
+# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
+# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
+# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
+# --
     async def start(self):
         await super().start()
         me = await self.get_me()
-
-        print(f"{me.first_name} Started Successfully ✨")
-
         self.mention = me.mention
         self.username = me.username
-
-        # -----------------------------------------
-        # LEAPCELL HEALTH CHECK ENDPOINT (required)
-        # -----------------------------------------
-        async def health_check(request):
-            return web.Response(text="OK")
-
-        health_app = web.Application()
-        health_app.router.add_get("/kaithheathcheck", health_check)
-
-        # Webhook mode
+        self.uptime = Config.BOT_UPTIME
         if Config.WEBHOOK:
-            webhook_app = await web_server()
-            health_app.add_subapp("/webhook", webhook_app)
-
-        runner = web.AppRunner(health_app)
-        await runner.setup()
-        await web.TCPSite(runner, "0.0.0.0", PORT).start()
-
-        print(f"Healthcheck running on port {PORT}")
-
-        # -----------------------------------------
-        # SEND START MESSAGE
-        # -----------------------------------------
-        uptime_sec = int(time.time() - self.start_time)
-        uptime_str = str(timedelta(seconds=uptime_sec))
-
+            app = web.AppRunner(await web_server())
+            await app.setup()
+            await web.TCPSite(app, "0.0.0.0", PORT).start()
+        print(f"{me.first_name} Is Started.....✨️")
+        uptime_seconds = int(time.time() - self.start_time)
+        uptime_string = str(timedelta(seconds=uptime_seconds))
         for chat_id in [Config.LOG_CHANNEL, Config.SUPPORT_CHAT]:
-            if not chat_id:
-                continue
-
             try:
+                curr = datetime.now(timezone("Asia/Kolkata"))
+                date = curr.strftime('%d %B, %Y')
+                time_str = curr.strftime('%I:%M:%S %p')
                 await self.send_photo(
                     chat_id=chat_id,
                     photo=Config.START_PIC,
                     caption=(
-                        "**I restarted again!**\n\n"
-                        f"Uptime before restart: `{uptime_str}`"
+                        "**I ʀᴇsᴛᴀʀᴛᴇᴅ ᴀɢᴀɪɴ !**\n\n"
+                        f"ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​: `{uptime_string}`"
                     ),
-                    reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("Updates", url="https://t.me/RexBots_Official")]
-                    ])
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/RexBots_Official")]]
+                    )
                 )
             except Exception as e:
-                print(f"Failed sending message to {chat_id}: {e}")
-
+                print(f"Failed to send message in chat {chat_id}: {e}")
 
 Bot().run()
+# ----------------------------------------
+# 𝐌𝐀𝐃𝐄 𝐁𝐘 𝐀𝐁𝐇𝐈
+# 𝐓𝐆 𝐈𝐃 : @𝐂𝐋𝐔𝐓𝐂𝐇𝟎𝟎𝟖
+# 𝐀𝐍𝐘 𝐈𝐒𝐒𝐔𝐄𝐒 𝐎𝐑 𝐀𝐃𝐃𝐈𝐍𝐆 𝐌𝐎𝐑𝐄 𝐓𝐇𝐈𝐍𝐆𝐬 𝐂𝐀𝐍 𝐂𝐎𝐍𝐓𝐀𝐂𝐓 𝐌𝐄
+# --
